@@ -363,6 +363,23 @@ h3, .h3{
   .scene__cta{ margin-top:1.25rem; }
 }
 @media (max-width: 640px){ .hero-signal{ top:5.5rem; font-size:.55rem; } }
+/* Vídeos 16:9 (1280×720) como fundo em tela cheia (100svh) num retrato
+   estreito forçam o object-fit:cover a ampliar o quadro inteiro em ~3x
+   (altura do stage >> 720px nativos do vídeo) — em cenas com enquadramento
+   já fechado (ex: Transformação, rosto ocupando boa parte do quadro) isso
+   cortava a cabeça da pessoa pra fora da tela. Limitar a altura do vídeo
+   reduz esse zoom (menos ampliação = menos corte lateral também); margin
+   auto centraliza verticalmente sem mexer em `transform`, que o hero já
+   usa pro zoom/parallax (initSignatureHero em main.js) e não pode brigar
+   com isso. Sobra uma faixa do fundo escuro do stage (var(--bg-void), já
+   escuro por padrão) acima/abaixo em vez do corte. */
+@media (max-width: 640px){
+  .cinema__video{
+    height:100vw;
+    max-height:100%;
+    margin:auto 0;
+  }
+}
 @media (prefers-reduced-motion: reduce){
   .intro-loader{ display:none; }
   #topo .cinema__video{ transform:none; transition:none; }
