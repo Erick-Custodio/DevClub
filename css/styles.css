@@ -302,6 +302,19 @@ h3, .h3{
     radial-gradient(120% 90% at 50% 100%, rgba(0,0,0,.75), transparent 60%),
     radial-gradient(120% 90% at 50% 0%, rgba(0,0,0,.55), transparent 55%);
 }
+/* Cena 5 (prática): o vídeo clareia bem mais que o do hero conforme o
+   scroll (updateVideo em main.js vai de brightness(1) a brightness(1.6),
+   sem o teto mais baixo do brightness/scrub do vídeo do hero) e o overlay
+   de partículas (scene5 em scenes.js) também fica mais intenso — sem
+   scrim dedicado, o parágrafo (cinza claro) lavava contra o fundo perto
+   do fim do scroll da cena, ficando ilegível. Mesmo scrim lateral do
+   hero, resolve o mesmo jeito. */
+#pratica .cinema__vignette{
+  background:
+    linear-gradient(100deg, rgba(4,5,7,.62) 0%, rgba(4,5,7,.4) 30%, rgba(4,5,7,.12) 55%, transparent 72%),
+    radial-gradient(120% 90% at 50% 100%, rgba(0,0,0,.75), transparent 60%),
+    radial-gradient(120% 90% at 50% 0%, rgba(0,0,0,.55), transparent 55%);
+}
 #topo .cinema__stage{ --hero-offset-x:0px; --hero-offset-y:0px; }
 #topo .cinema__video{
   z-index:0;
